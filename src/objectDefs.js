@@ -1,4 +1,4 @@
-const G_PLAYER_BULLET_TYPE_1 = new PlayerBulletType(3, 1, "triangle", 2, Color.WHITE, true, true, 2000);
+const G_PLAYER_BULLET_TYPE_1 = new PlayerBulletType(3, 1, "triangle", 2, Color.WHITE, true, true, 2000, true);
 const G_PLAYER_BULLET_TYPE_2 = new PlayerBulletType(8, 6, "circle", 1, Color.RED);
 
 let g_weaponPistol = new Weapon("pistol", 490, true);
