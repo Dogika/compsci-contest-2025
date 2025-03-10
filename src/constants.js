@@ -1,4 +1,4 @@
-const g_collide = false;
+const g_collide = true;
 
 const G_X = 0;
 const G_Y = 1;
