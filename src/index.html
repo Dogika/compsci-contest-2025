@@ -1,0 +1,124 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <style>
+        @font-face {
+            font-family: 'VCR OSD Mono';
+            src: url('https://codehs.com/uploads/1f0eaf389c9c7dd9ef6a991c38b08471')
+        }
+    </style>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script src="https://unpkg.com/fontfaceobserver@2.1.0/fontfaceobserver.standalone.js"></script>
+    <script src="https://cdn.codehs.com/chs-js-lib/0.2.21/dist/chs.iife.js"></script>
+    <script>"use strict";</script>
+    <script src="https://aidanpastor.codehs.me/constants.js"></script>
+    <script src="https://aidanpastor.codehs.me/math.js"></script>
+    <script src="https://aidanpastor.codehs.me/typeObject.js"></script>
+    <script src="https://aidanpastor.codehs.me/events.js"></script>
+    <script src="https://aidanpastor.codehs.me/typeBehavior.js"></script>
+    <script src="https://aidanpastor.codehs.me/graphics.js"></script>
+    <script src="https://aidanpastor.codehs.me/input.js"></script>
+    <script src="https://aidanpastor.codehs.me/draw.js"></script>
+    <script src="https://aidanpastor.codehs.me/playerBullet.js"></script>
+    <script src="https://aidanpastor.codehs.me/enemy.js"></script>
+    <script src="https://aidanpastor.codehs.me/enemyBullet.js"></script>
+    <script src="https://aidanpastor.codehs.me/enemyPattern.js"></script>
+    <script src="https://aidanpastor.codehs.me/hitscan.js"></script>
+    <script src="https://aidanpastor.codehs.me/player.js"></script>
+    <script src="https://aidanpastor.codehs.me/gameState.js"></script>
+    <script src="https://aidanpastor.codehs.me/weapon.js"></script>
+    <script src="https://aidanpastor.codehs.me/objectDefs.js"></script>
+    <script src="https://aidanpastor.codehs.me/main.js" onload="start()"></script>
+<script>
+/*
+Rules:
+don't use 'var' use 'let'. see JavaScript Hoisting
+make sure battery saver is off when running
+*/
+
+/*
+Controls:
+WASD - movement
+mouse - shoot
+space - dash/dodge
+*/
+
+/*
+naming convention:
+
+"var" - basic name for variable
+
+g_var - global variable
+p_var - parameter (variable)
+var_x - variable for the x axis
+var_y - variable for the y axis
+var_ptr - pointer variable (indirect way of accessing an object (the object will be mainly stored elsewhere))
+let - constant (not variable)
+
+Example:
+g_var_x_ptr - global pointer to variable for the x axis
+
+*/
+
+/*
+todo PRIORITY:
+
+ todo make game friggin awesome
+
+FEATURES TO ADD:
+ todo hitscan weapons
+ DONE deltaTime to player movement
+ DONE Damage collisions
+ DONE Player bullets
+ DONE Enemy movement:
+    DONE Lerp smoothing between initial position and final position
+    DONE Straight velocity using final position minus initial position over time it should take to get there
+ DONE Bullets able to be spawned sequentially (rework firePattern (and spawnBullet?))
+ DONE Bullets spawning toward player (rework bullet movement/bulletObject system)
+ DONE Bullets having acceleration with max/min velocities (rework bullet movement/bulletObject system)
+ DONE Points and score
+ todo Bullets and enemies dropping upgrades/points*
+    todo Check for bullets that are offscreen before dropping points
+ DONE Destroying bullets after set time or when they are far enough off screen
+ todo Add auto collect zone for point and upgrade particles at top of screen
+ todo Add waves (when boss is defeated start new attack loop/pattern; or time based)
+    - destroys all previous bullets on screen 
+ 
+ todo design level
+
+ todo menus:
+ Main start menu.
+     - Play menu.
+         - Game.
+             - Pause menu.
+                 - Restart from last checkpoint
+                 - Restart from beginning
+                 - Quit
+             - Death screen
+                 - Restart from last checkpoint
+                 - Restart from beginning
+                 - Quit
+     - Settings menu.
+     - Credits menu.
+ 
+ final todo make tutorial level and real level
+ 
+EXTRA:
+ todo weapon types
+*/
+</script>
+<style>
+    #canvas {
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border: 1px solid #cccccc;
+        background-color: #cccccc;
+    }
+</style>
+  </body>
+</html>
