@@ -384,23 +384,41 @@ function updateObjects(deltaTime) {
                 playerBullet.vy = expDecay(playerBullet.vy, 0, G_BULLET_FRICTION, deltaTime);
             }
             
-            for (let enemy of g_enemyInstances) {
-                if (Math.hypot(enemy.x - playerBullet.x, enemy.y - playerBullet.y) < enemy.enemyType.radius + playerBullet.type.radius) {
-                    let newHealth = Math.max(0, enemy.health - playerBullet.type.damage * deltaTime);
-                    g_stats.damageDealt += enemy.health - newHealth;
-                    enemy.health = newHealth
-                    playerBullet.x -= enemy.x;
-                    playerBullet.y -= enemy.y;
-                    playerBullet.parent = enemy;
-                    playerBullet.timestampDeath += 5000;
-                    break;
+            if (playerBullet.type.sticks) {
+                for (let enemy of g_enemyInstances) {
+                    if (Math.hypot(enemy.x - playerBullet.x, enemy.y - playerBullet.y) < enemy.enemyType.radius + playerBullet.type.radius) {
+                        let newHealth = Math.max(0, enemy.health - playerBullet.type.damage * deltaTime);
+                        g_stats.damageDealt += enemy.health - newHealth;
+                        enemy.health = newHealth
+                        playerBullet.x -= enemy.x;
+                        playerBullet.y -= enemy.y;
+                        playerBullet.parent = enemy;
+                        playerBullet.timestampDeath += 5000;
+                        break;
+                    }
+                }
+            } else {
+                let hitEnemy = false;
+                for (let enemy of g_enemyInstances) {
+                    if (Math.hypot(enemy.x - playerBullet.x, enemy.y - playerBullet.y) < enemy.enemyType.radius + playerBullet.type.radius) {
+                        let newHealth = Math.max(0, enemy.health - playerBullet.type.damage * deltaTime);
+                        g_stats.damageDealt += enemy.health - newHealth;
+                        enemy.health = newHealth
+                        hitEnemy = true;
+                    }
+                }
+                if (hitEnemy) {
+                    g_playerBulletInstances.remove(i);
+                    continue;
                 }
             }
+            
         }
         
         playerBullet.display(ctx);
         i++
     }
+    
     i = 0;
     while (i < g_enemyInstances.length) {
         
