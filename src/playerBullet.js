@@ -37,7 +37,7 @@ function PlayerBulletObject(type, x=0, y=0, vx=0, vy=-1) {
     }
 }
 
-function PlayerBulletType(damage=1, radius=4, shape="circle", width=2, color=Color.WHITE, center=true, bounceOffWalls=false, lifespan=undefined) {
+function PlayerBulletType(damage=1, radius=4, shape="circle", width=2, color=Color.WHITE, center=true, bounceOffWalls=false, lifespan=undefined, sticks=undefined) {
     this.damage = damage;
     this.radius = radius * G_PREFERED_SCALAR;
     this.shape = shape;
@@ -46,4 +46,5 @@ function PlayerBulletType(damage=1, radius=4, shape="circle", width=2, color=Col
     this.center = center;
     this.bounceOffWalls = bounceOffWalls;
     this.lifespan = lifespan;
+    this.sticks = sticks;
 }
